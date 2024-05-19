@@ -1,0 +1,79 @@
+<%- include('partials/header.ejs')-%>
+<main>
+  
+<div class="eForm">
+  <% if(type==="mod"){%>
+
+      <form id="editForm" method="post" action="/update">
+        <input name="id" hidden value="<%=data.id%>">
+        <input type="text" name="title" value="<%=data.title %>" readonly>
+        <textarea name="content" rows="10"><%=data.opinion %></textarea>
+        <div class="rating">
+          <label>
+            <input type="radio" name="stars" value="1" />
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>   
+          </label>
+          <label>
+            <input type="radio" name="stars" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="5" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+        </div>
+        <button class="full-width" type="submit">
+          save changes
+        </button>
+      </form>
+      <%}else{%>
+
+        <div class="view">
+          <div class="vH">
+            <h5><%=data.title%></h5>
+            <% data.authors.forEach(function(author){%>
+            <h6><%=author%></h6>
+            <%});%>
+            <% data.categories.forEach(function(cat){%>
+              <span><h6><%=cat%> </h6></span>
+              <%});%>
+            <small><%=data.isbn%></small>
+          </div>
+          <div class="vB"></br>
+            <%=data.description%>
+          </div>
+          
+        </div>
+
+        <%};%>
+    </div>
+
+
+
+<script>
+$(':radio').change(function() {
+  console.log('New star rating: ' + this.value);
+});
+
+</script>
+
+    </main>
+    <%- include('partials/footer.ejs')-%>

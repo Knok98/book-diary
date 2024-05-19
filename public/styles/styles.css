@@ -1,0 +1,157 @@
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked~.icon,
+.rating:hover label:hover input~.icon {
+  color: rgb(255, 123, 0);
+}
+
+.rating label input:focus:not(:checked)~.icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px rgb(255, 119, 0);
+}
+
+#editForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 100px;
+  gap: 70px;
+}
+
+img {
+  width: 200px;
+  height: 309px;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: .5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+header {
+  background-color: whitesmoke;
+  opacity: 0.9;
+}
+
+footer {
+  background-color: whitesmoke;
+  opacity: 0.9;
+  bottom: 0;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.eForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25%;
+}
+
+.sorting {
+  margin-right: 20px;
+  padding: 5px;
+  display: inline-flex;
+}
+
+.sc {
+  flex-direction: column;
+  border: 0.5px solid grey;
+  padding: 5px;
+}
+
+.radios {
+  flex-direction: row;
+}
+
+.sorting :nth-child(1) {
+  border-right-style: none;
+}
